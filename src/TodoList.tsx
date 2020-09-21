@@ -18,12 +18,12 @@ export function TodoList(props: PropsType) {
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
-        debugger
+
         if (title.trim()) {
             props.addTask(title.trim(), props.id);
             setTitle("")
         } else {
-            debugger
+
             setError("Title is required!")
         }
 
