@@ -23,7 +23,7 @@ export function TodoList(props: PropsType) {
             props.addTask(title.trim(), props.id);
             setTitle("")
         } else {
-debugger
+
             setError("Title is required!")
         }
 
