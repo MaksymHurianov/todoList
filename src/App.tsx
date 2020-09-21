@@ -57,7 +57,7 @@ function App() {
         [todoListID2]:[
             {id: v1(), title: "Books", isDone: false},
             {id: v1(), title: "Butter", isDone: false},
-            {id: v1(), title: "Onion", isDone: true},
+            {id: v1(), title: "Bread", isDone: true},
             {id: v1(), title: "Beer", isDone: true},
             {id: v1(), title: "Fish", isDone: true}
         ]
