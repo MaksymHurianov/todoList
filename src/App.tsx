@@ -5,6 +5,12 @@ import {v1} from "uuid";
 import AddItemForm from "./AddItemForm";
 
 
+import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
+import {Menu} from "@material-ui/icons";
+
+
+
+
 
 
 export type TaskType = {
@@ -146,7 +152,22 @@ function App() {
 
     return (
         <div className="App">
-            <AddItemForm addItem={addTodoList}/>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start"  color="inherit" aria-label="menu">
+                        <Menu />
+                    </IconButton>
+                    <Typography variant="h6" >
+                        News
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Container fixed>
+                <Grid container style={{padding:"15px"}}>
+                     <AddItemForm addItem={addTodoList}/>
+                </Grid>
+                <Grid container spacing={10}>
             {
                 todoLists.map(tl => {
                     let tasksForTodolist = tasks[tl.id];
@@ -157,8 +178,10 @@ function App() {
                         tasksForTodolist = tasks[tl.id].filter(t => t.isDone === true)
                     }
                     return(
+                        <Grid item={true} key={tl.id}>
+                            <Paper style={{padding:"15px"}} elevation={7}>
                     <TodoList
-                              key={tl.id}
+
                               id={tl.id}
                               title={tl.title}
                               tasks={tasksForTodolist}
@@ -170,9 +193,15 @@ function App() {
                               removeTodoList={removeTodoList}
                               changeTaskTitle={changeTaskTitle}
                               changeTodoListTitle={changeTodoListTitle}
-                    />)
+                    />
+                            </Paper>
+                        </Grid>
+                    )
+
                 })
             }
+                </Grid>
+            </Container>
 
         </div>
     );
